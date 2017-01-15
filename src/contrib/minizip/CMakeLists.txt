@@ -24,4 +24,4 @@ add_library( # Sets the name of the library.
              # file are automatically included.
              ${minizip-lib-src} )
 
-include_directories(../..)
+include_directories(../../../dist/${ANDROID_ABI}/includes/zlib)

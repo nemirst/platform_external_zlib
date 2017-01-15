@@ -15,5 +15,9 @@ $1/../cmake/3.6.3155560/bin/cmake \
 -DANDROID_STL=c++_static \
 -DCMAKE_CXX_FLAGS=-O2 \
 -DCMAKE_C_FLAGS=-O2
+[ $? -eq 0 ] || exit $?;
 $1/../cmake/3.6.3155560/bin/ninja -C ./cmake_build_$2
+[ $? -eq 0 ] || exit $?;
+cp `ls *.h | grep -v "iowin32\.h"` ../../../dist/$2/includes/zlib
+cp cmake_build_$2/libminizip-lib.a ../../../dist/$2
 echo "Done building $2 version"
